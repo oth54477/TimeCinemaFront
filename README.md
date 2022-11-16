@@ -23,3 +23,9 @@
 
 ## 팀원
 ---
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/oth54477"><img src="https://avatars.githubusercontent.com/u/66712534?v=4" width="100px;" alt=""/><br /><sub><b>TAEHUN</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/dokkyunYU"><img src="https://avatars.githubusercontent.com/u/109258608?v=4" width="100px;" alt=""/><br /><sub><b>DOKKYUN</b></sub></a><br /></td>
+  </tr>
+</table>
