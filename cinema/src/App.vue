@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <button @click="load">load</button>
-    <LoadingPage class="loading" v-if="!isLoaded"/>
-    <MenuBar />
+    <!-- <button @click="load">load</button> -->
+    
+    <div class="bigBox" v-if="isLoading">
+      <LoadingPage class="loading" />
+    </div>
+    <MenuBar class="menuBar"/>
     <router-view/>
   </div>
 </template>
@@ -15,25 +18,51 @@ export default {
   name: 'App',
   data() {
     return {
-      isLoaded: false
+      cnt: 0
     }
   },
   components: {
     LoadingPage,
     MenuBar,
   },
-  methods: {
-    load() {
-      this.isLoaded = !this.isLoaded
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading
     }
   },
+  methods: {
+    start() {
+      this.$store.dispatch('getTopRateMovies', 1)
+      // if (this.)
+      // this.$router.push({ name: 'time' })
+    },
+    load() {
+      this.isLoaded = !this.isLoaded
+    },
+    test() {
+      console.log(11)
+    }
+  },
+  created() {
+    this.start()
+  },
+  watch: {
+    isLoading() {
+      this.cnt += 1
+      if (this.cnt === 2) {
+        this.$router.push({ name: 'time' })
+        this.cnt = 0
+      }
+    }
+  }
 }
 </script>
 
 <style>
 body {
-  background-color: gray;
-
+  background-color: rgba(248, 242, 230, 100);
+  height: 100%;
+  min-height: 100vh;
 }
 
 #app {
@@ -45,14 +74,61 @@ body {
   /* display: grid; */
   /* grid-template-areas: ""; */
   position: relative;
+} 
+
+
+
+
+
+.bigBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
 }
 
 .loading {
   width: 300px;
   position: absolute;
-  top: 500px;
-  left: 1200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* top: 500px;
+  left: 1200px; */
 }
+
+/* .loading {
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+/* .loading {
+  position: absolute;
+  width: 300px;
+  top:0;right:0;bottom:0;left:0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  -ms-box-pack: center;
+  -ms-box-align: center;
+} */
 
 nav {
   padding: 30px;

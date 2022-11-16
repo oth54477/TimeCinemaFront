@@ -1,8 +1,12 @@
 <template>
   <div class="container">
     <div class="box">
-      <div class="clock"></div>
-      <p>Clock</p>
+      <div class="outter">
+        <div class="inner">
+          <div class="clock"></div>
+          <h1>Loading...</h1>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -26,6 +30,11 @@ export default {
   text-align: center;
   /* background-color: gray; */
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 75%;
 }
 
 /* .box:nth-child(2n-1){
@@ -34,17 +43,34 @@ export default {
 
 .box{
   display: inline-block;
-  height: 200px;
-  width: 33.3%;
-  float:left;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 100%;
+  /* width: 33.3%; */
+  width: 100%;
   position: relative;
   /*margin:0 -4px -5px -2px;*/
   transition: all .2s ease;
 }
 
+.outter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
-.box p{
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box2 {
+  height: 100%;
+  width: 100%;
+}
+.box h1{
   color: #777;
   font-family:  Lato,"Helvetica Neue" ;
   font-weight: 300;
@@ -56,21 +82,20 @@ export default {
   bottom: 0px;
   margin: 0;
   top:160px;
-  background-color: #fff;
-  opacity: 0;
+  /* background-color: #fff; */
+  opacity: 1;
   text-transform: uppercase;
   transition: all .2s ease;
 }
-
-.box:hover p{
-  bottom:0px;
-  top:175px;
-  opacity: 1;
-  transition: all .2s ease;
-  z-index: 2;
-}
-
-
+/* 
+.cir {
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 48%;
+  width: 100px;
+  height: 10px;
+} */
 
 /* MEDIA QUERIES */
 @media (max-width: 700px){
@@ -107,16 +132,18 @@ export default {
 /* -------------- Clock -------------- */
 
 .clock{
-  border-radius: 60px;
-  border: 3px solid #fff;
-  height: 80px;
-  width: 80px;
+  border-radius: 1000px;
+  border: 10px solid #fff;
+  height: 300px;
+  width: 300px;
   position: relative;
 
-  top: 28%;
+  /* top: 28%; */
+  top: 110px;
   top: -webkit-calc(50% - 43px);
   top: calc(50% - 43px);
-  left: 35%;
+  /* left: 35%; */
+  left: 110px;
   left: -webkit-calc(50% - 43px);
   left: calc(50% - 43px);
 }
@@ -124,9 +151,9 @@ export default {
   content: "";
   position: absolute;
   background-color: #fff;
-  top:2px;
+  top: 2px;
   left: 48%;
-  height: 38px;
+  height: 150px;
   width: 4px;
   border-radius: 5px;
   -webkit-transform-origin: 50% 97%;
@@ -149,9 +176,9 @@ export default {
   content: "";
   position: absolute;
   background-color: #fff;
-  top:6px;
+  top: 2px;
   left: 48%;
-  height: 35px;
+  height: 150px;
   width: 4px;
   border-radius: 5px;
   -webkit-transform-origin: 50% 94%;
@@ -169,4 +196,7 @@ export default {
     0%{transform:rotate(0deg);}
     100%{transform:rotate(360deg);}
 }
+
+
+
 </style>

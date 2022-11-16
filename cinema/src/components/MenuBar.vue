@@ -6,7 +6,7 @@
     
     <div class="menu-round" :class="{ open: isClicked }">
       <div class="btn-app">
-        <div class="fa fa-twitter"></div>
+        <div class="fa fa-brands fa-github"></div>
       </div>
       <div class="btn-app">
         <div class="fa fa-facebook"></div>
