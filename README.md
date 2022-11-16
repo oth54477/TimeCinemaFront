@@ -20,8 +20,6 @@
     - 유튜브 API를 통해 해당 영화의 예고편을 받아올 예정
 
 ### 기술 스택
-<img src="https://img.shields.io/badge/python-3776AB?style=flat-square&logo=Python&logoColor=fffff"/>
-
 
 ## 팀원
 ---
